@@ -1,0 +1,4 @@
+# Sample experiment 1:
+mode=transformer mtl_fully_share=0 mtl_shared_vocab=1 language=farsi size=full encode=bpe task=111000000000 shared_enc_layers=3 shared_dec_layers=3 epochs=30 gpu=p100 job_time=4-00:00:00
+# Sample experiment 2:
+mode=transformer mtl_fully_share=1 language=farsi size=full encode=bpe task=111000000000 shared_enc_layers=3 shared_dec_layers=3 epochs=30 gpu=p100 job_time=4-00:00:00

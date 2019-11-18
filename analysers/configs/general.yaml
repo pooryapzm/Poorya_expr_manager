@@ -1,0 +1,72 @@
+server_list:
+  - "m3"
+  - "monarch"
+meta_log_name: "analysis_log"
+train_log_name: "train_log"
+info_log_name: "info"
+pattern: "[META_AIW]"
+scheduler_mem_bank: "model_scheduler_mem_bank.pt"
+remote_dirs:
+  - /projects/da33/poorya/mtl-onmt/expr
+  - /scratch/da33/poorya
+
+info:
+  - job_seed: red
+  - language
+  - size
+  - task
+  - mtl_fully_share
+  - mtl_shared_vocab
+
+  - SEP1
+  - mtl_schedule
+  - meta_mtl_concat_mode
+  - normalization
+  - mtl_shared_cell
+
+  - SEP2
+  - meta_batch_weighting: red
+  - meta_batch_weighting_mode: red
+  - meta_first_order
+  - meta_batch_level_weighting: blue
+  - meta_weighting_strategy: blue
+  - meta_bias_mode: blue
+  - meta_hard_weighting: blue
+
+  - SEP3
+  - scheduler_net
+  - scheduler_net_mode
+  - warm_scheduler
+
+  - SEP4
+  - scheduler_optim
+  - scheduler_learning_rate
+
+  - SEP5
+  - normalize_meta_loss: blue
+  - meta_global_normalization: hidden
+  - meta_global_normalization_mode: hidden
+
+  - SEP6
+  - rnn_size: hidden
+  - batch_size: hidden
+  - epochs
+
+  - SEP7
+  - optim: hidden
+  - learning_rate: hidden
+  - max_grad_norm: hidden
+  - enc_layers: hidden
+  - dec_layers: hidden
+  - dropout: hidden
+  - mode
+  - train_steps: hidden
+  - valid_steps: hidden
+  - decay_method
+  - is_trained
+  - debug_mode: blue
+
+
+
+
+

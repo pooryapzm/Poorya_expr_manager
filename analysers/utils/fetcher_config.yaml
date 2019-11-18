@@ -1,0 +1,15 @@
+m3_server_info:
+  server: server.com
+  user: user
+  pass: pass
+  remote_dirs:
+    - /path/to/experiments/main/folder
+
+monarch_server_info:
+  server: server2.com
+  user: user
+  pass: pass
+  remote_dirs:
+    - /path/to/experiments/main/folder
+
+local_folder: /local/path/to/save/files/

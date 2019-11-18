@@ -1,0 +1,52 @@
+info:
+  - language
+  - size
+  - task
+
+  - SEP-group1
+  - mtl_schedule: red
+  - mtl_fully_share
+  - mtl_shared_vocab: red
+  - normalization: blue
+  - share_decoder_bottom
+  - mtl_shared_optimizer
+  - mtl_adv_schedule
+  - adv_lambda
+  - shared_enc_layers
+  - shared_dec_layers
+  - rnn_cat_type
+
+  - SEP2-group1
+  - mtl_shared_cell
+  - mtl_shared_cell_mode
+
+  - SEP-group3
+  - meta_batch_weighting
+  - meta_batch_weighting_mode
+  - use_valied_as_meta
+  - meta_mtl_concat_mode
+  - normalize_meta_loss
+  - meta_global_normalization: hidden
+  - meta_global_normalization_mode: hidden
+
+  - SEP-General
+  - rnn_size: hidden
+  - batch_size: hidden
+  - epochs
+  - optim: red
+  - learning_rate: hidden
+  - max_grad_norm: hidden
+  - enc_layers
+  - dec_layers
+  - dropout: hidden
+  - mode
+  - train_steps: hidden
+  - valid_steps
+  - decay_method
+  - is_trained
+  - debug_mode
+  - job_seed: red
+
+
+
+filters:

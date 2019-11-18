@@ -1,0 +1,148 @@
+transformer_default_opts:
+   decoder_type: transformer
+   encoder_type: transformer
+   word_vec_size: 512
+   rnn_size: 512
+   layers: 6
+   transformer_ff: 2048
+   heads: 8
+   #
+   accum_count: 8
+   optim: adam
+   adam_beta1: 0.9
+   adam_beta2: 0.998
+   decay_method: noam
+   learning_rate: 2.0
+   max_grad_norm: 0.0
+   #
+   batch_size: 4096
+   batch_type: tokens
+   normalization: tokens
+   dropout: 0.1
+   label_smoothing: 0.1
+   #
+   max_generator_batches: 2
+   #
+   param_init: 0.0
+   param_init_glorot: true
+   position_encoding: true
+   #
+   world_size: 1
+
+
+rnn_default_opts:
+   encoder_type: rnn
+   decoder_type: rnn
+   rnn_type: LSTM
+   input_feed: 1
+   rnn_size: 512
+   word_vec_size: 512
+   enc_layers: 3
+   dec_layers: 3
+   batch_size: 32
+   max_grad_norm: 5
+   optim: adam
+   learning_rate: 0.001
+   dropout: 0.3
+   decay_method: performance
+   normalization: none
+
+
+noisy_default_opts:
+   encoder_type: rnn
+   decoder_type: rnn
+   rnn_type: LSTM
+   input_feed: 1
+   rnn_size: 512
+   word_vec_size: 512
+   enc_layers: 1
+   dec_layers: 1
+   batch_size: 32
+   max_grad_norm: 5
+   optim: adam
+   learning_rate: 0.001
+   dropout: 0.3
+   decay_method: performance
+   normalization: none
+
+default_opts:
+  # input
+   language:
+   size:
+   mode: rnn
+   encode: bpe
+   task:
+  # training
+   report_every: 100
+   epochs: 10
+  # MTL
+   debug_mode: 0
+   mtl_schedule: 0
+   mtl_fully_share: 0
+   mtl_shared_vocab: 0
+   mtl_shared_vocab_path: ''
+   shared_enc_layers: 1
+   shared_dec_layers: 2
+   share_encoder_bottom: 0
+   share_decoder_bottom: 1
+   mtl_gamma: 1,1,1,1
+   mtl_shared_optimizer: 0
+   mtl_adv_schedule: 0
+   adv_optim: adam
+   adv_learning_rate: 0.001
+   adv_lambda: 0.5
+   warm_model: ""
+   # Shared-cell MTL
+   mtl_shared_cell: 0
+   mtl_shared_cell_mode: 0
+   shared_cell_log: 1
+   # Meta-Learning
+   meta_batch_weighting: 0
+   meta_batch_weighting_mode: 1
+   meta_global_normalization: 0
+   meta_global_normalization_mode: 0
+   normalize_meta_loss: 1
+   meta_mtl_concat_mode: none
+   meta_log: 1
+   meta_step_report: 50
+   mtl_use_main_lr: 0
+   mtl_use_main_optim: 0
+   use_valied_as_meta: 0
+   meta_batch_level_weighting: 0
+   meta_only_shared_grads: 0
+   #
+   rnn_cat_type: none
+   # Others
+   keep_checkpoint: 1
+   seed: 12345
+   gpu_ranks: 0
+
+job_opts:
+  gpu: v100
+  job_time: 5-00:00:00
+
+output_folder_description:
+  - language
+  - size
+  - mode
+  - task
+  - mtl_fully_share
+  - mtl_schedule
+  - meta_batch_weighting
+  - meta_batch_weighting_mode
+  - meta_mtl_concat_mode
+  - mtl_shared_vocab
+  - shared_dec_layers
+  - shared_enc_layers
+  - optim
+  - learning_rate
+  - batch_size
+  - job_seed
+
+gpu_partition_map:
+  k80: m3c
+  k1: m3f
+  p100: m3h
+  v100: m3g
+  monarch: gpu
+  rtqp: rtqp
